@@ -14,9 +14,28 @@ $(document).ready(function(){
 
     promise.then(function(response){
       let body = JSON.parse(response);
-      // let doctorArray = [];
+      let doctorArray = [""];
+      Object.keys(body.data[0].profile).forEach(function(element){
+         doctorArray.push(element);
+
+
+         // JUST REALIZED I SHOULD USE A FOR LOOP 4:42PM
+
+
+
+        //  Object.keys(thisDoctor.bio).forEach(function(element){
+        //   doctorArray.push(thisDoctor.bio);
+        //  });
+
+        console.log(body.data[0].profile);
+
+              // doctorArray.push(thisDoctor);
+      });
+      doctorArray.forEach(function(element){
+        $(".showProvider").append("<p>" + element + "</p>");
+      });
       // body.practices.name
-      $('.showProvider').text(`These are the doctors in your area: ${body.data.profile}.`);
+      // $('.showProvider').text(`These are the doctors in your area: ${body.data.first_name}.`);
     },
      function(error){
       $('.errors').text(`There was an error processing your request: ${error.message}`);

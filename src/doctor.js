@@ -8,6 +8,7 @@ export class Doctor{
       if ( response.data.length === 0) {
         $('#showSymptom').text('No Result Found')
       } else {
+        console.log(response);
         searchDoctors(response);
       }
     })
@@ -16,11 +17,12 @@ export class Doctor{
 
   }
 
-  getCondition(){
+  // getCondition(doctorCondition, searchDoctors){
+  //
 
   }
 
-}
+// }
 
 
 

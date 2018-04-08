@@ -1,13 +1,14 @@
 
 export class Doctor{
   constructor(){}
-  getDoctor(name) {
+  getDoctor(query) {
     let request = new XMLHttpRequest();
 
     let url =
 
-    `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
     // https://api.betterdoctor.com/2016-03-01/doctors?query=${query}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}
+    `https://api.betterdoctor.com/2016-03-01/doctors?query=${query}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+    // https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}
     return new Promise(function(resolve, reject){
       request.onload = function() {
         if (this.status === 200) {
@@ -23,7 +24,7 @@ export class Doctor{
 
   getCondition(query) {
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${doctorName}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${query}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
       return new Promise(function(resolve, reject){
         request.onload = function() {
           if (this.status === 200) {
